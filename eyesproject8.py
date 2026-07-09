@@ -223,7 +223,7 @@ with col2:
 
     st.write(f"**Female : {(1-probability)*100:.2f}%**")
 
-     st.write(f"**Male : {probability*100:.2f}%**")
+ st.write(f"**Male : {probability*100:.2f}%**")
 
 # -----------------------------
 # Sidebar
