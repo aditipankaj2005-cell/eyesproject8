@@ -185,48 +185,39 @@ if uploaded_file is not None:
 
     with st.spinner("Predicting..."):
 
-        prediction = model.predict(img, verbose=0)
+    prediction = model.predict(img, verbose=0)
 
-    probability = float(prediction[0][0])
+probability = float(prediction[0][0])
 
-    # -----------------------------------
-    # Change labels if your prediction is reversed
-    # -----------------------------------
+# Show raw prediction for debugging
+st.write("Raw Prediction Value:", round(probability, 4))
 
-    if probability < 0.5:
+# --------------------------------------------------
+# Prediction Logic
+# --------------------------------------------------
 
-        predicted_class = "Female"
+if probability >= 0.5:
+    predicted_class = "Male"
+    confidence = probability * 100
+else:
+    predicted_class = "Female"
+    confidence = (1 - probability) * 100
 
-        confidence = (1 - probability) * 100
+with col2:
 
+    st.markdown("## 🤖 Prediction")
+
+    if predicted_class == "Male":
+        st.success(f"### Prediction : {predicted_class}")
     else:
+        st.info(f"### Prediction : {predicted_class}")
 
-        predicted_class = "Male"
+    st.metric(
+        label="Confidence",
+        value=f"{confidence:.2f}%"
+    )
 
-        confidence = probability * 100
-
-    with col2:
-
-        st.markdown("## 🤖 Prediction")
-
-        if predicted_class == "Male":
-
-            st.success(f"### Prediction : {predicted_class}")
-
-        else:
-
-            st.info(f"### Prediction : {predicted_class}")
-
-        st.write("")
-
-        st.metric(
-            label="Confidence",
-            value=f"{confidence:.2f}%"
-        )
-
-        st.progress(min(int(confidence), 100))
-
-        st.write("")
+    st.progress(min(int(confidence), 100))        st.write("")
 
         st.markdown("### 📊 Prediction Probability")
 
