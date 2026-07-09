@@ -216,7 +216,8 @@ with col2:
         value=f"{confidence:.2f}%"
     )
 
-    st.progress(min(int(confidence), 100))        st.write("")
+    st.progress(min(int(confidence), 100))   
+    st.write("")
 
         st.markdown("### 📊 Prediction Probability")
 
