@@ -184,7 +184,7 @@ if uploaded_file is not None:
     # -----------------------------
 with  st.spinner("Predicting..."):
 
-prediction = model.predict(img, verbose=0)
+     prediction = model.predict(img, verbose=0)
 
 probability = float(prediction[0][0])
 
