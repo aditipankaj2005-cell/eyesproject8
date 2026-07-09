@@ -66,7 +66,7 @@ st.markdown("""
 @st.cache_resource
 def load_model():
 
-    model=tf.keras.models.load_model("/content/sample_data/my_model (1).keras")
+    model=tf.keras.models.load_model("/content/sample_data/my_model(1).keras")
 
     return model
 
