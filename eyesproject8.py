@@ -182,8 +182,7 @@ if uploaded_file is not None:
     # -----------------------------
     # Prediction
     # -----------------------------
-
-    with st.spinner("Predicting..."):
+with  st.spinner("Predicting..."):
 
     prediction = model.predict(img, verbose=0)
 
