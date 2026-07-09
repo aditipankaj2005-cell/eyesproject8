@@ -157,7 +157,7 @@ if uploaded_file is not None:
 
     image = Image.open(uploaded_file).convert("RGB")
 
- col1, col2 = st.columns(2)
+col1, col2 = st.columns(2)
 
 with col1:
 
