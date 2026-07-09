@@ -157,34 +157,34 @@ if uploaded_file is not None:
 
     image = Image.open(uploaded_file).convert("RGB")
 
-    col1, col2 = st.columns(2)
+ col1, col2 = st.columns(2)
 
-    with col1:
+with col1:
 
-        st.image(
-            image,
-            caption="Uploaded Eye Image",
-            use_container_width=True
-        )
+    st.image(
+        image,
+        caption="Uploaded Eye Image",
+        use_container_width=True
+    )
 
-    # -----------------------------
-    # Image Preprocessing
-    # -----------------------------
+# -----------------------------
+# Image Preprocessing
+# -----------------------------
 
-    img = image.resize(IMG_SIZE)
+img = image.resize(IMG_SIZE)
 
-    img = np.array(img)
+img = np.array(img)
 
-    img = img.astype("float32") / 255.0
+img = img.astype("float32") / 255.0
 
-    img = np.expand_dims(img, axis=0)
+img = np.expand_dims(img, axis=0)
 
-    # -----------------------------
-    # Prediction
-    # -----------------------------
-with  st.spinner("Predicting..."):
+# -----------------------------
+# Prediction
+# -----------------------------
 
-     prediction = model.predict(img, verbose=0)
+with st.spinner("Predicting..."):
+    prediction = model.predict(img, verbose=0)
 
 probability = float(prediction[0][0])
 
