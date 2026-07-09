@@ -219,11 +219,11 @@ with col2:
     st.progress(min(int(confidence), 100))   
     st.write("")
 
-        st.markdown("### 📊 Prediction Probability")
+    st.markdown("### 📊 Prediction Probability")
 
-        st.write(f"**Female : {(1-probability)*100:.2f}%**")
+    st.write(f"**Female : {(1-probability)*100:.2f}%**")
 
-        st.write(f"**Male : {probability*100:.2f}%**")
+     st.write(f"**Male : {probability*100:.2f}%**")
 
 # -----------------------------
 # Sidebar
