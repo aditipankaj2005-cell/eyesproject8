@@ -1,4 +1,6 @@
 streamlit
-tensorflow
+tensorflow==2.16.1
 numpy
-Pillow
+pillow
+matplotlib
+pandas
